@@ -2,7 +2,7 @@ var words = ["DRAGON", "CYAN", "LOVE", "ANANAS", "PEACE", "BEACH", "MOUNTAIN", "
 var allLetters = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
 var keyBoard = [];
 var keyBoardUsed = [];
-
+var correctWords = [];
 var oneRandomWord, right, wrong;
 var moveLeftRight = 21;
 var armsAndFeet = 35;
@@ -89,7 +89,6 @@ function rightFoot() {
 function preload() {
   right = loadSound('eat.wav');
   wrong = loadSound('boom.wav');
-
 }
 
 
@@ -246,10 +245,21 @@ function draw() {
   fill(0);
   textSize(25 * width / 700);
   strokeWeight(2 * width / 700);
-  text("You have guessed: " + winning + " words", 50 * width / 700, 450 * width / 700);
-  stroke(0);
+  text("You have guessed: " + winning + " words", 50 * width / 700, 430 * width / 700);
+  
+  
+    fill("#d71b5a");
+  textSize(15 * width / 700);
+stroke(255);
 
-
+  let newLine =0;
+for (let i=0;i<correctWords.length;i++) {
+  
+  if ((i+1)%6==0) {newLine+=25;}
+  
+  text(correctWords[i], 30* width / 700 +(i-newLine/5)*100* width / 700 , (460+newLine) * width / 700);
+   
+  }
 
 }
 
@@ -389,7 +399,7 @@ function mousePressed() {
     moveLeftRight = 21;
     armsAndFeet = 35;
     keyBoardUsed = [];
-
+correctWords=[];
     movearmsAndFeettButton = true;
     moveLeftRightButton = true;
     wordsAmount = [];
@@ -416,8 +426,6 @@ function keyPressed() {
   pressIt();
 }
 
-
-
 function pressIt() {
   if (chances == 10) {
     gameOver = true;
@@ -435,6 +443,7 @@ function pressIt() {
   }
 
   if (words[oneRandomWord] !== undefined && win == words[oneRandomWord].length && words.length > 0) {
+    correctWords.push(words[oneRandomWord]+" 👌");
     winning++
     for (let i = 0; i < keyBoard.length; i++) {
       keyBoard[i].used = true;
