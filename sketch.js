@@ -14,6 +14,7 @@ var correct = [];
 var gameOver = false;
 var lastWord = false;
 var winning = 0;
+  var theCanvasWidth,mobileCanvas;
 
 function randomWord() {
   if (words.length > 0) {
@@ -26,26 +27,26 @@ function randomWord() {
 
 function head() {
   stroke(117, 90, 25);
-  line(180 * width / 700, 50 * width / 700, 180 * width / 700 + moveLeftRight, 100 * width / 700);
+  line((180+mobileCanvas/2) * width / 700, 50 * width / 700, (180+mobileCanvas/2) * width / 700 + moveLeftRight, 100 * width / 700);
   fill(232, 232, 181);
   stroke(0);
   strokeWeight(2 * width / 700);
-  circle(180 * width / 700 + moveLeftRight, 100 * width / 700, 50 * width / 700);
+  circle((180+mobileCanvas/2) * width / 700 + moveLeftRight, 100 * width / 700, 50 * width / 700);
   fill(0);
   textSize(14 * width / 700);
-  text("x    x", 167 * width / 700 + moveLeftRight, 100 * width / 700);
+  text("x    x", (167+mobileCanvas/2) * width / 700 + moveLeftRight, 100 * width / 700);
   strokeWeight(5 * width / 700);
   stroke(117, 90, 25);
-  line(170 * width / 700 + moveLeftRight, 124 * width / 700, 190 * width / 700 + moveLeftRight, 125 * width / 700);
-  line(170 * width / 700 + moveLeftRight, 128 * width / 700, 190 * width / 700 + moveLeftRight, 129 * width / 700);
-  line(170 * width / 700 + moveLeftRight, 132 * width / 700, 190 * width / 700 + moveLeftRight, 134 * width / 700);
+  line((170+mobileCanvas/2) * width / 700 + moveLeftRight, 124 * width / 700, (190+mobileCanvas/2) * width / 700 + moveLeftRight, 125 * width / 700);
+  line((170+mobileCanvas/2) * width / 700 + moveLeftRight, 128 * width / 700, (190+mobileCanvas/2) * width / 700 + moveLeftRight, 129 * width / 700);
+  line((170+mobileCanvas/2) * width / 700 + moveLeftRight, 132 * width / 700, (190+mobileCanvas/2) * width / 700 + moveLeftRight, 134 * width / 700);
 }
 
 function body() {
   strokeWeight(2 * width / 700);
   fill("#d71b5a");
   stroke("#d71b5a");
-  rect(153 * width / 700 + moveLeftRight, 135 * width / 700, 55 * width / 700, 70 * width / 700);
+  rect((153+mobileCanvas/2) * width / 700 + moveLeftRight, 135 * width / 700, 55 * width / 700, 70 * width / 700);
 
 }
 
@@ -53,37 +54,37 @@ function leftArm() {
   stroke("#000");
 
   strokeWeight(10 * width / 700);
-  line(150 * width / 700 + moveLeftRight, 139 * width / 700, 150 * width / 700 + armsAndFeet, 190 * width / 700);
+  line((150+mobileCanvas/2) * width / 700 + moveLeftRight, 139 * width / 700, (150+mobileCanvas/2) * width / 700 + armsAndFeet, 190 * width / 700);
 
 }
 
 function rightArm() {
-  line(211 * width / 700 + moveLeftRight, 139 * width / 700, 210 * width / 700 + armsAndFeet, 190 * width / 700);
+  line((211+mobileCanvas/2) * width / 700 + moveLeftRight, 139 * width / 700, (210+mobileCanvas/2) * width / 700 + armsAndFeet, 190 * width / 700);
 }
 
 function leftLeg() {
   strokeWeight(1 * width / 700);
   fill(64, 64, 153);
   stroke(0);
-  quad(153 * width / 700 + moveLeftRight, 204 * width / 700, 155 * width / 700 + armsAndFeet, 260 * width / 700, 160 * width / 700 + armsAndFeet, 260 * width / 700, 185 * width / 700 + moveLeftRight, 205 * width / 700);
+  quad((153+mobileCanvas/2) * width / 700 + moveLeftRight, 204 * width / 700, (155+mobileCanvas/2) * width / 700 + armsAndFeet, 260 * width / 700, (160+mobileCanvas/2) * width / 700 + armsAndFeet, 260 * width / 700, (185+mobileCanvas/2) * width / 700 + moveLeftRight, 205 * width / 700);
 }
 
 function rightLeg() {
     fill(64, 64, 153);
-  quad(180 * width / 700 + moveLeftRight, 205 * width / 700, 200 * width / 700 + armsAndFeet, 260 * width / 700, 205 * width / 700 + armsAndFeet, 260 * width / 700, 208 * width / 700 + moveLeftRight, 204 * width / 700);
+  quad((180+mobileCanvas/2) * width / 700 + moveLeftRight, 205 * width / 700, (200+mobileCanvas/2) * width / 700 + armsAndFeet, 260 * width / 700, (205+mobileCanvas/2) * width / 700 + armsAndFeet, 260 * width / 700, (208+mobileCanvas/2) * width / 700 + moveLeftRight, 204 * width / 700);
 }
 function leftHand() {
     fill(232, 232, 181);
-    circle(150* width / 700+ armsAndFeet,190* width / 700,15* width / 700);
+    circle((150+mobileCanvas/2)* width / 700+ armsAndFeet,190* width / 700,15* width / 700);
 }
 function rightHand() {
-    circle(210* width / 700+ armsAndFeet,190* width / 700,15* width / 700);
+    circle((210+mobileCanvas/2)* width / 700+ armsAndFeet,190* width / 700,15* width / 700);
 }
 function leftFoot() {
-    circle(155* width / 700+ armsAndFeet,260* width / 700,18* width / 700);
+    circle((155+mobileCanvas/2)* width / 700+ armsAndFeet,260* width / 700,18* width / 700);
 }
 function rightFoot() {
-    circle(205* width / 700+ armsAndFeet,260* width / 700,18* width / 700);
+    circle((205+mobileCanvas/2)* width / 700+ armsAndFeet,260* width / 700,18* width / 700);
 }
 
 function preload() {
@@ -98,15 +99,19 @@ function setup() {
 }
 
 function draw() {
-  var theCanvasWidth;
+  
   if (windowWidth > 700) {
     theCanvasWidth = 700;
   } else {
     theCanvasWidth = windowWidth;
   }
+  if (windowWidth < 400) {
+    mobileCanvas = 300;
+  } else {    mobileCanvas = 0;
+}
 
 
-  var theCanvas = createCanvas(theCanvasWidth, 500 * width / 700);
+  var theCanvas = createCanvas(theCanvasWidth, 500 * width / 700 + mobileCanvas*1.7* width / 700);
 
   theCanvas.center("horizontal");
   keyBordArray();
@@ -115,12 +120,12 @@ function draw() {
 
   fill(125, 201, 199);
   noStroke();
-  rect(0, 240 * width / 700, width, 160 * width / 700);
+  rect(0, 240 * width / 700, width, (160+mobileCanvas) * width / 700);
 
   fill(63, 155, 152);
   stroke(255);
   strokeWeight(5 * width / 700);
-  rect(300 * width / 700, 75 * width / 700, 390 * width / 700, 200 * width / 700);
+  rect((300-mobileCanvas/1.1) * width / 700  , (75+mobileCanvas*1.7) * width / 700, (390+mobileCanvas/1.2) * width / 700, 200 * width / 700);
 
   strokeWeight(5 * width / 700);
   fill(117, 90, 25);
@@ -128,13 +133,13 @@ function draw() {
 
   push();
   rotate(1);
-  translate(5 * width / 700, -130 * width / 700);
+  translate((5+mobileCanvas/3.4) * width / 700, (-mobileCanvas/2.4-130) * width / 700);
   ellipse(120 * width / 700, 100 * width / 700, 20 * width / 700, 170 * width / 700)
   pop();
 
-  ellipse(30 * width / 700, 190 * width / 700, 20 * width / 700, 330 * width / 700)
-  rect(25 * width / 700, 330 * width / 700, 200 * width / 700, 25 * width / 700);
-  rect(25 * width / 700, 25 * width / 700, 180 * width / 700, 25 * width / 700);
+  ellipse((30+mobileCanvas/2) * width / 700, 190 * width / 700, 20 * width / 700, 330 * width / 700);
+  rect((25+mobileCanvas/2) * width / 700, 330 * width / 700, 200 * width / 700, 25 * width / 700);
+  rect((25+mobileCanvas/2) * width / 700, 25 * width / 700, 180 * width / 700, 25 * width / 700);
 
   if (moveLeftRightButton) {
     moveLeftRight += 0.5;
@@ -205,12 +210,12 @@ function draw() {
 
     for (let i = 0; i < words[oneRandomWord].length; i++) {
       stroke(255);
-      line(360 * width / 700 + i * 40 * width / 700, 200 * width / 700, 385 * width / 700 + i * 40 * width / 700, 200 * width / 700);
-      textSize(30 * width / 700);
+      line((360-mobileCanvas) * width / 700 + i * (40+mobileCanvas/10) * width / 700, (200+mobileCanvas*1.7) * width / 700, (385-mobileCanvas*0.9) * width / 700 + i * (40+mobileCanvas/10) * width / 700, (200+mobileCanvas*1.7) * width / 700);
+      textSize((30+mobileCanvas/11) * width / 700);
       fill(255);
       for (let j = 0; j < correct.length; j++) {
         if (correct[j] == words[oneRandomWord][i]) {
-          text(words[oneRandomWord][i], 360 * width / 700 + i * 40 * width / 700, 195 * width / 700);
+          text(words[oneRandomWord][i], (360-mobileCanvas*0.97) * width / 700 + i * (40+mobileCanvas/10) * width / 700, (195+mobileCanvas*1.7) * width / 700);
         }
       }
 
@@ -243,21 +248,23 @@ function draw() {
   stroke(255);
 
   fill(0);
-  textSize(25 * width / 700);
+  textSize((25+mobileCanvas/20) * width / 700);
   strokeWeight(2 * width / 700);
   text("You have guessed: " + winning + " words", 50 * width / 700, 430 * width / 700);
   
   
     fill("#d71b5a");
-  textSize(15 * width / 700);
+  textSize((15+mobileCanvas/40) * width / 700);
 stroke(255);
 
   let newLine =0;
+  let nextLine =0;
+
 for (let i=0;i<correctWords.length;i++) {
   
-  if ((i+1)%6==0) {newLine+=25;}
+  if (i>0&&i%(5-mobileCanvas/300)==0) {newLine+=25;nextLine++;}
   
-  text(correctWords[i], 30* width / 700 +(i-newLine/5)*100* width / 700 , (460+newLine) * width / 700);
+  text(correctWords[i], 30 * width / 700 +(i+nextLine-newLine/5)*(100+mobileCanvas/4)* width / 700 , (460+newLine*(1+mobileCanvas/290)+mobileCanvas/25) * width / 700);
    
   }
 
@@ -266,9 +273,9 @@ for (let i=0;i<correctWords.length;i++) {
 class Letters {
   constructor(value, x, y) {
     this.value = value;
-    this.x = x * width / 700;
-    this.y = y * width / 700;
-    this.r = 20 * width / 700;
+    this.x = (x-mobileCanvas/1.01) * width / 700;
+    this.y = (y+mobileCanvas*1.7) * width / 700;
+    this.r = (20+mobileCanvas/10) * width / 700;
   }
 
   show() {
@@ -291,8 +298,8 @@ class Letters {
     fill(BGcolor);
     square(this.x, this.y, this.r);
     fill(0);
-    textSize(13 * width / 700);
-    text(this.value, this.x + 5 * width / 700, this.y + 14 * width / 700);
+    textSize((13 * width / 700) + mobileCanvas/18);
+    text(this.value, this.x + 5 * width / 700, (this.y+mobileCanvas/21) + 14 * width / 700);
   }
 
   clicked(px, py) {
@@ -368,16 +375,16 @@ class Letters {
 function keyBordArray() {
   keyBoard = [];
   for (let i = 0; i < 10; i++) {
-    let a = new Letters(allLetters[i], 350 + i * 30, 300);
+    let a = new Letters(allLetters[i], 350 + i * (30+mobileCanvas/10), 300);
     keyBoard.push(a);
   }
   for (let i = 10; i < 19; i++) {
-    let a = new Letters(allLetters[i], 370 + (i - 10) * 30, 330);
+    let a = new Letters(allLetters[i], 370 + (i - 10) * (30+mobileCanvas/9.5), 330+mobileCanvas/10);
     keyBoard.push(a);
 
   }
   for (let i = 19; i < 26; i++) {
-    let a = new Letters(allLetters[i], 390 + (i - 19) * 30, 360);
+    let a = new Letters(allLetters[i], 390 + (i - 19) * (30+mobileCanvas/7), 360+mobileCanvas/5);
     keyBoard.push(a);
   }
 }
