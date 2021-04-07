@@ -118,7 +118,9 @@ function draw() {
 
   var theCanvas = createCanvas(theCanvasWidth, 500 * width / 700 + mobileCanvas * 1.7 * width / 700);
 
+      if (mobileCanvas == 0) {
   theCanvas.center("horizontal");
+      }
   keyBordArray();
 
   background(245);
