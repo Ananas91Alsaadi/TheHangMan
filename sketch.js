@@ -102,6 +102,22 @@ function setup() {
   randomWord();
 }
 
+function windowResized() {
+    if (windowWidth > 700) {
+    theCanvasWidth = 700;
+  } else {
+    theCanvasWidth = windowWidth;
+  }
+  if (windowWidth < 420) {
+    mobileCanvas = 300;
+  } else {
+    mobileCanvas = 0;
+  }
+
+  resizeCanvas(theCanvasWidth, 500 * width / 700 + mobileCanvas * 1.7 * width / 700);
+}
+
+
 function draw() {
 
   if (windowWidth > 700) {
@@ -117,10 +133,8 @@ function draw() {
 
 
   var theCanvas = createCanvas(theCanvasWidth, 500 * width / 700 + mobileCanvas * 1.7 * width / 700);
-
-      if (mobileCanvas == 0) {
   theCanvas.center("horizontal");
-      }
+      
   keyBordArray();
 
   background(245);
