@@ -248,6 +248,8 @@ function draw() {
     fill(0);
     textSize(100 * width / 700);
     text("Game Over", 100 * width / 700, 200 * width / 700);
+        textSize(50 * width / 700);
+        text("The word is "+words[oneRandomWord], 110 * width / 700, 270 * width / 700);
     fill(200);
     rect(550 * width / 700, 425 * width / 700, 90 * width / 700, 45 * width / 700);
     textSize(25 * width / 700);
@@ -293,6 +295,14 @@ function draw() {
     text(correctWords[i], 30 * width / 700 + (i + nextLine - newLine / 5) * (100 + mobileCanvas / 4) * width / 700, (460 + newLine * (1 + mobileCanvas / 290) + mobileCanvas / 25) * width / 700);
 
   }
+textSize((25+ mobileCanvas / 25) * width / 700);
+        text("The Hangman", 425 * width / 700, (25+ mobileCanvas / 25) * width / 700);
+  textSize((15+ mobileCanvas / 25) * width / 700);
+if (mobileCanvas<300) {
+              text("guess the word and win the prize", 390 * width / 700, 55 * width / 700);
+
+    }else{text("guess the word \nand win the prize", 450 * width / 700, (70+ mobileCanvas / 25) * width / 700);}
+
 
 }
 
