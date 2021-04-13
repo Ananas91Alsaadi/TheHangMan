@@ -15,6 +15,7 @@ var gameOver = false;
 var lastWord = false;
 var winning = 0;
 var theCanvasWidth, mobileCanvas;
+var onOff =true;
 
 function randomWord() {
   if (words.length > 0) {
@@ -245,6 +246,8 @@ function draw() {
 
 
   if (gameOver) {
+    
+
     fill(0);
     textSize(100 * width / 700);
     text("Game Over", 100 * width / 700, 200 * width / 700);
@@ -274,6 +277,13 @@ function draw() {
   textSize((25 + mobileCanvas / 20) * width / 700);
   strokeWeight(2 * width / 700);
   text("You have guessed: " + winning + " words", 50 * width / 700, 430 * width / 700);
+  if (onOff) { writeOnOff="On"
+  } else {writeOnOff="Off"}
+    strokeWeight(1 * width / 700);
+  textSize((15 + mobileCanvas / 20) * width / 700);
+
+    text("Sound: "+ writeOnOff, 10 * width / 700, 15 * width / 700);
+
 
 
   fill("#d71b5a");
@@ -365,9 +375,12 @@ class Letters {
         }
         if (checkIt) {
           correct.push(this.value);
-          right.play();
+          if (onOff) {
+          right.play();}
         } else {
-          wrong.play();
+                    if (onOff) {
+
+          wrong.play();}
           chances++;
         }
       }
@@ -397,10 +410,14 @@ class Letters {
         }
         if (checkIt) {
           correct.push(this.value);
-          right.play();
+                    if (onOff) {
+
+          right.play();}
 
         } else {
-          wrong.play();
+                    if (onOff) {
+
+          wrong.play();}
 
           chances++;
         }
@@ -436,6 +453,11 @@ function mousePressed() {
   }
 
   pressIt();
+
+  let Sd = dist(mouseX, mouseY, 10 * width / 700 + 40 * width / 700, 15 * width / 700 * width / 700);
+  if (Sd < 30) {
+    if (onOff) {
+    onOff=false;}else {onOff=true}}
 
   let d = dist(mouseX, mouseY, 550 * width / 700 + 45 * width / 700, 425 * width / 700 + 22 * width / 700);
   if (gameOver && d < 30) {
@@ -506,8 +528,11 @@ function keyPressed() {
 }
 
 function pressIt() {
-  if (chances == 10) {
+  
+  if (chances == 10&&gameOver == false) {
     gameOver = true;
+            correctWords.push(words[oneRandomWord] + " 😱");
+
   }
   let win = 0;
 
